@@ -3,14 +3,15 @@
 This is a simple CRUD api written in C# .Net with MySQL database
 
 Pre Requisite:
-    1. Install MySQL
-    2. Create db name "notesdb"
-    3. Create table name "notes" with the following columns and data type
+    1. Build the project solution
+    2. Install MySQL
+    3. Create db name "notesdb"
+    4. Create table name "notes" with the following columns and data type
         id              int
         title           varchar
         description     varchar
-    4. Add data entry manually
-    5. Run the app and API can be used with Swagger
+    5. Add data entry manually
+    6. Run the app and API can be used with Swagger
 
     
 
