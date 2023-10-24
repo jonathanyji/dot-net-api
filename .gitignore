@@ -1,0 +1,11 @@
+.vs/
+*.dll
+*.pdb
+*.cache
+NotesApp/obj/Debug/net7.0/NotesApp.csproj.FileListAbsolute.txt
+NotesApp/obj/Debug/net7.0/NotesApp.GeneratedMSBuildEditorConfig.editorconfig
+*.cache
+NotesApp/obj/Debug/net7.0/NotesApp.pdb
+NotesApp/obj/NotesApp.csproj.nuget.dgspec.json
+NotesApp/obj/project.assets.json
+NotesApp/obj/project.nuget.cache
