@@ -29,8 +29,8 @@ CREATE TABLE notes (
 ```bash
 INSERT INTO notes (id, title, description)
 VALUES (1, 'Travel Journal', 'This is a test Journal notes'),
-VALUES (1, 'Work Journal', 'This is a test work  Journal notes'),
-VALUES (1, 'Cooking Journal', 'This is a test Cooking Journal notes');
+VALUES (2, 'Work Journal', 'This is a test work  Journal notes'),
+VALUES (3, 'Cooking Journal', 'This is a test Cooking Journal notes');
 ```
 
 6. Run the app and API can be used with Swagger
