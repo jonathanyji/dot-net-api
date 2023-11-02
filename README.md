@@ -74,3 +74,14 @@ Gets all the list of notes in the notes db
   "id": 1
 }
 ```
+
+## Helpful link
+```bash
+https://auth0.com/blog/aspnet-web-api-authorization/
+
+https://stackoverflow.com/a/75218950/13150631
+
+https://stackoverflow.com/a/64673991
+
+https://stackoverflow.com/a/54086161/13150631
+```
