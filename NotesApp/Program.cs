@@ -1,38 +1,19 @@
-using Microsoft.EntityFrameworkCore;
-using NotesApp.Data;
+using NotesApp;
 
-var builder = WebApplication.CreateBuilder(args);
+/*
+    Program.cs is where the application starts.
+    Startup.cs is where lot of the configuration happens.
+    The idea for this separation is based on SOLID principles' first principle- SRP (Single Responsibility Principle)
+    Ref: https://stackoverflow.com/a/64673991
+ */
 
-// Add services to the container.
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+Startup startup = new Startup(builder.Configuration);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-//MySQL Connection
-var connectionStrings = builder.Configuration.GetConnectionString("DefaultConnection");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 34));
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-    options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings));
-});
-
+startup.ConfigureServices(builder.Services); // This adds services by calling the configuration services in Startup class
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+startup.Configure(app, app.Environment); // Configure the HTTP request pipeline.
 
 app.Run();
