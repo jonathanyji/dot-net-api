@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NotesApp.Models;
 using NotesApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NotesApp.Controllers
 {
@@ -19,6 +19,7 @@ namespace NotesApp.Controllers
 
         [HttpPost]
         [Route("/create")]
+        [Authorize]
         public IActionResult CreateNoteEntry(NotesEntries note)
         {
             if (note != null)
@@ -36,6 +37,7 @@ namespace NotesApp.Controllers
 
         [HttpGet]
         [Route("/list")]
+        [Authorize]
         public IActionResult GetNotes()
         {
             List<NotesEntries> result = _db.Notes.ToList();
@@ -50,6 +52,7 @@ namespace NotesApp.Controllers
 
         [HttpGet]
         [Route("/get-note")]
+        [Authorize]
         public IActionResult GetNoteById(int id)
         {
 
@@ -65,6 +68,7 @@ namespace NotesApp.Controllers
 
         [HttpPut]
         [Route("/update")]
+        [Authorize]
         public IActionResult UpdateNote(NotesEntries note)
         {
             if (note.Title != null)
@@ -89,6 +93,7 @@ namespace NotesApp.Controllers
 
         [HttpDelete]
         [Route("/delete")]
+        [Authorize]
         public IActionResult DeleteNoteById(int id)
         {
             NotesEntries result = _db.Notes.Find(id);
