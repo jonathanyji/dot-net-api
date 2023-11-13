@@ -75,6 +75,16 @@ namespace NotesApp
                 options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings));
             });
 
+            // CORS Config
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000");
+                    });
+            });
+
         }
 
 
@@ -91,9 +101,11 @@ namespace NotesApp
             }
 
             app.UseHttpsRedirection();
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
+           
 
         }
 
