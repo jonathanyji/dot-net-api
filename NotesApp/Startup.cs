@@ -38,9 +38,6 @@ namespace NotesApp
                     };
             });
 
-
-            services.AddControllers();
-
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
@@ -81,10 +78,12 @@ namespace NotesApp
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.WithOrigins("http://localhost:3000");
+                        policy.WithOrigins("http://localhost:3000")
+                        .AllowAnyHeader();
                     });
             });
 
+            services.AddControllers();
         }
 
 

@@ -24,6 +24,7 @@ namespace NotesApp.Controllers
         {
             if (note != null)
             {
+                note.Id = Guid.NewGuid().ToString();
                 _db.Notes.Add(note);
                 _db.SaveChanges();
 

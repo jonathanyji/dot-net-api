@@ -12,13 +12,13 @@ CREATE DATABASE notesdb;
 ```
 
 4. Create table name "notes" with the following columns and data type
-    id              int
+    id              varchar
     title           varchar
     description     varchar
 
 ```bash
 CREATE TABLE notes (
-    id int,
+    id varchar(36) PRIMARY KEY,
     title varchar(255),
     description varchar(255)
 );
@@ -28,9 +28,10 @@ CREATE TABLE notes (
 
 ```bash
 INSERT INTO notes (id, title, description)
-VALUES (1, 'Travel Journal', 'This is a test Journal notes'),
-VALUES (2, 'Work Journal', 'This is a test work  Journal notes'),
-VALUES (3, 'Cooking Journal', 'This is a test Cooking Journal notes');
+VALUES
+  ('550e8400-e29b-41d4-a716-446655440000', 'Travel Journal', 'This is a test Journal notes'),
+  ('550e8400-e29b-41d4-a716-446655440001', 'Work Journal', 'This is a test work Journal notes'),
+  ('550e8400-e29b-41d4-a716-446655440002', 'Cooking Journal', 'This is a test Cooking Journal notes');
 ```
 
 6. Run the app and API can be used with Swagger
@@ -41,7 +42,7 @@ VALUES (3, 'Cooking Journal', 'This is a test Cooking Journal notes');
 1. Create API (/create)
 ```bash
 {
-  "id": 0,
+  "id": '0',
   "title": "string",
   "description": "string"
 }
@@ -62,7 +63,7 @@ Gets all the list of notes in the notes db
 3. UpdateNotesById (/update)
 ```bash
 {
-  "id": 0,
+  "id": '0',
   "title": "string",
   "description": "string"
 }
@@ -71,7 +72,7 @@ Gets all the list of notes in the notes db
 4. DeleteById (/delete)
 ```bash
 {
-  "id": 1
+  "id": '1'
 }
 ```
 
