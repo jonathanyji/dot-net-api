@@ -54,7 +54,7 @@ namespace NotesApp.Controllers
         [HttpGet]
         [Route("/get-note")]
         [Authorize]
-        public IActionResult GetNoteById(int id)
+        public IActionResult GetNoteById(string id)
         {
 
             NotesEntries result = _db.Notes.Find(id);
@@ -95,7 +95,7 @@ namespace NotesApp.Controllers
         [HttpDelete]
         [Route("/delete")]
         [Authorize]
-        public IActionResult DeleteNoteById(int id)
+        public IActionResult DeleteNoteById(string id)
         {
             NotesEntries result = _db.Notes.Find(id);
 
