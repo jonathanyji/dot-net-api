@@ -5,36 +5,15 @@ This is a simple CRUD api written in C# .Net with MySQL database
 ## Pre-requisite:
 1. Build the project solution
 2. Install MySQL
-3. Create db name "notesdb"
+
+3. Run the mysql script file name: notes_db_script.sql located in the NotesApp/ directory
+   This will create users table and notes table with initial values
 
 ```bash
-CREATE DATABASE notesdb;
+source [path_to_script/NotesApp/notes_db_script.sql]
 ```
 
-4. Create table name "notes" with the following columns and data type
-    id              varchar
-    title           varchar
-    description     varchar
-
-```bash
-CREATE TABLE notes (
-    id varchar(36) PRIMARY KEY,
-    title varchar(255),
-    description varchar(255)
-);
-```
-
-5. Add data manually
-
-```bash
-INSERT INTO notes (id, title, description)
-VALUES
-  ('550e8400-e29b-41d4-a716-446655440000', 'Travel Journal', 'This is a test Journal notes'),
-  ('550e8400-e29b-41d4-a716-446655440001', 'Work Journal', 'This is a test work Journal notes'),
-  ('550e8400-e29b-41d4-a716-446655440002', 'Cooking Journal', 'This is a test Cooking Journal notes');
-```
-
-6. Run the app and API can be used with Swagger
+4. Run the app and API can be used with Swagger
     
 
 ## API:
